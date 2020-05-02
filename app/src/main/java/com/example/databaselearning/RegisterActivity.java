@@ -1,5 +1,7 @@
 package com.example.databaselearning;
 
+//Faz o cadastro de um novo contato, com nome e telefone.
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,12 +28,13 @@ public class RegisterActivity extends AppCompatActivity {
                 String telefone = txtTelefone.getText().toString();
 
                 Four_ContactsDAO contactsDAO = new Four_ContactsDAO(getBaseContext());
-                if(contactsDAO.Cadastrar(nome,telefone)){
+                if (contactsDAO.Cadastrar(nome, telefone)) {
                     Toast.makeText(getBaseContext(), "Cadastro realizado com sucesso!", Toast.LENGTH_LONG).show();
-                }
-                else{
+                } else {
                     Toast.makeText(getBaseContext(), "Falha ao realizar o cadastro!", Toast.LENGTH_SHORT).show();
                 }
+
+                finish();
             }
         });
     }

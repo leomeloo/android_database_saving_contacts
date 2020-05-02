@@ -43,6 +43,8 @@ public class Four_ContactsDAO {
         return gw.getDatabase().delete(Table_Agenda, "ID=?", new String[]{id+""}) > 0;
     }
 
+    //Leitura do banco de dados,  trás tudo que está cadastrado.
+
     List<Three_Contacts> contacts = new ArrayList<>();
 
     public List<Three_Contacts> getContacts() {
@@ -50,6 +52,7 @@ public class Four_ContactsDAO {
         try{
             Cursor cursor = gw.getDatabase().rawQuery("SELECT * FROM Agenda", null );
 
+            //Agendas com mais de 1 resultado
             while (cursor.moveToNext()){
                 int id = cursor.getInt(cursor.getColumnIndex("ID"));
                 String nome = cursor.getString(cursor.getColumnIndex("Nome"));

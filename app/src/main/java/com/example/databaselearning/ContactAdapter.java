@@ -22,27 +22,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
         this.contacts = contacts;
     }
 
-    @NonNull
-    @Override
-    public ContactHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itens_list, parent, false);
-        return new ContactHolder(view, parent.getContext());
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ContactHolder holder, int position) {
-
-        holder.nomeContato.setText(contacts.get(position).getName());
-        holder.telefoneContato.setText(contacts.get(position).getTelefone());
-    }
-
-    @Override
-    public int getItemCount() {
-        return contacts.size();
-    }
-
-
     //Quando clicar em algum item da lista, irá direcionar para outra activity.
     public class ContactHolder extends RecyclerView.ViewHolder{
 
@@ -69,7 +48,31 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
                 }
             });
         }
-
-
     }
+
+    //Infla o layout
+    @NonNull
+    @Override
+    public ContactHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itens_list, parent, false);
+        return new ContactHolder(view, parent.getContext());
+    }
+
+    //inseri as informações no iten_list
+    @Override
+    public void onBindViewHolder(@NonNull ContactHolder holder, int position) {
+
+        holder.nomeContato.setText(contacts.get(position).getName());
+        holder.telefoneContato.setText(contacts.get(position).getTelefone());
+    }
+
+    //retorna o tamanho da lista
+    @Override
+    public int getItemCount() {
+        return contacts.size();
+    }
+
+
+
 }

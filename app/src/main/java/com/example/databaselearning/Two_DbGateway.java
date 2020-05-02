@@ -3,6 +3,7 @@ package com.example.databaselearning;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+//Evita abrir varias conexões no banco de dados, no padrao singleton
 //Abre uma conexão que pode ser editada ( WritetableDatabase )
 
 public class Two_DbGateway {
